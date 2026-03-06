@@ -1,5 +1,14 @@
 # Payer-Scale Medallion Lakehouse: Longitudinal High-Risk Patient & Cost Analytics
 
+## Introduction
+In order of personal interest in US Healthcare, I came to develop this project while learning several domains. Initially, I explored the US health care official sites to learn about what actaully is it and it's compliance. I joined foundational HIPAA training https://hipaatraining.us/ and studied HIPAA documentation from http://hhs.gov/
+
+After learning foundation of HIPAA, I was hunting the appropriate dataset to develop this project. I came to know about CMS-DESynPUF dataset which is [publicly available](https://www.cms.gov/data-research/statistics-trends-and-reports/medicare-claims-synthetic-public-use-files/cms-2008-2010-data-entrepreneurs-synthetic-public-use-file-de-synpuf). 
+
+I chose databricks to start this project because the free edition is undeniably excellent to practice sparks for free. To get started, I even attended databricks e-learnings : [Databricks Fundamentals](https://drive.google.com/file/d/1IcAw1nGPl9jzaziTuP79XuLPpabc434N/view?usp=drive_link) & [Get Started with Databricks for Data Engineering](https://drive.google.com/file/d/1jkt_jgSkpqMuLp20X3E96QmRQurVbskA/view?usp=drive_link) 
+
+The rest of learnings are detailed below where I asked AI to act like a stakeholder of healthcare and ask me a insights.
+
 ## Business Context & Objective
 Health plans face significant challenges in identifying **"high-risk, high-cost"** members due to fragmented data silos across Inpatient, Outpatient, and Pharmacy claims.
 
@@ -34,8 +43,6 @@ The pipeline follows a modern **ELT (Extract, Load, Transform)** pattern to ensu
 
 - **Language:** PySpark, SparkSQL
 
-- **Storage:** Delta Lake (Parquet-backed)
-
 - **Security:** SHA-256 Tokenization with SALT method, Safe-Harbour method
 
 ## Key Features & Engineered Metrics
@@ -60,3 +67,9 @@ Preliminary analysis of the Gold layer shows that patients identified as High-Ri
 - **PHI Protection:** All patient and provider identifiers are tokenized using SHA-256 hashing at the entry point of the Silver layer.
 
 - **Auditability:** _ingested_at timestamps and source file tracking maintained in Bronze for full lineage.
+
+## My Learnings
+
+- I came to explore ELT in Healthcare dataset.
+- I learnt about spark and several databricks features.
+- Next, I am willing to use jobs/pipelines feature to schedule the notebooks that will get the raw data into bronze table whenever the associated volumes have new data. Since, I used the Sample 1 of the DE-SynPUF dataset as it has 20 samples, if in future any new samples get added in volumes then scheduled jobs shall get them into analytics pipeline in scheduled time.
